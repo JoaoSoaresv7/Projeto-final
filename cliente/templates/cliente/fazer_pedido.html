@@ -1,17 +1,26 @@
-<h1>Faça seu pedido</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Faça seu pedido</title>
+</head>
+<body>
+    <h1>Faça seu pedido</h1>
 
-<form method="post" action="{% url 'fazer_pedido' %}">
-    {% csrf_token %}
+    <form method="post" action="{% url 'fazer_pedido' %}">
+        {% csrf_token %}
 
-    <h2>Dados do Pedido:</h2>
-    {{ form.as_p }}
+        <h2>Dados do Pedido:</h2>
+        {{ form.as_p }}
 
-    <h2>Sabores das Pizzas:</h2>
-    {{ sabor_formset.management_form }}  {# <-- ESSENCIAL! #}
+        <h2>Sabores das Pizzas:</h2>
+        {{ sabor_formset.management_form }} {# ESSENCIAL para formset funcionar #}
 
-    {% for form_sabor in sabor_formset %}
-        {{ form_sabor.as_p }}
-    {% endfor %}
+        {% for form_sabor in sabor_formset %}
+            {{ form_sabor.as_p }}
+        {% endfor %}
 
-    <button type="submit">Enviar Pedido</button>
-</form>
+        <button type="submit">Enviar Pedido</button>
+    </form>
+</body>
+</html>

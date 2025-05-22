@@ -4,11 +4,11 @@ from .models import Pedido, Pizza
 from django.forms import formset_factory
 
 def fazer_pedido_view(request):
-    SaborFormSet = formset_factory(SaborPizzaForm, extra=0)
+    quantidade = int(request.POST.get('quantidade', 1)) if request.method == 'POST' else 1
+    SaborFormSet = formset_factory(SaborPizzaForm, extra=quantidade)
 
     if request.method == 'POST':
         pedido_form = PedidoForm(request.POST)
-        quantidade = int(request.POST.get('quantidade', 1))
         sabor_formset = SaborFormSet(request.POST, prefix='sabores')
 
         if pedido_form.is_valid() and sabor_formset.is_valid():
