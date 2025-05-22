@@ -1,0 +1,17 @@
+<h1>Faça seu pedido</h1>
+
+<form method="post" action="{% url 'fazer_pedido' %}">
+    {% csrf_token %}
+
+    <h2>Dados do Pedido:</h2>
+    {{ form.as_p }}
+
+    <h2>Sabores das Pizzas:</h2>
+    {{ sabor_formset.management_form }}  {# <-- ESSENCIAL! #}
+
+    {% for form_sabor in sabor_formset %}
+        {{ form_sabor.as_p }}
+    {% endfor %}
+
+    <button type="submit">Enviar Pedido</button>
+</form>

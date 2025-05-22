@@ -1,0 +1,20 @@
+<h1>Fila de Pedidos</h1>
+{% for pedido in pedidos %}
+    <div>
+        <h3>Pedido de {{ pedido.nome }}</h3>
+        <p>Endereço: {{ pedido.endereco }}</p>
+        <p>CPF: {{ pedido.cpf }}</p>
+        <p>Quantidade: {{ pedido.quantidade }}</p>
+        <p>Borda: {{ pedido.get_borda_display }}</p>
+        <p>Tamanho: {{ pedido.get_tamanho_display }}</p>
+        <p>Pizzas:</p>
+        <ul>
+            {% for pizza in pedido.pizzas.all %}
+                <li>{{ pizza.get_sabor_display }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+    </div>
+{% empty %}
+    <p>Nenhum pedido na fila.</p>
+{% endfor %}
