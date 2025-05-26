@@ -6,10 +6,9 @@ Possui duas interfaces principais:
 - Página do funcionário para visualizar e processar pedidos.
 
 ## Instruções de instalação
-
-1. **Clone o repositório:**
-
 ```bash
+
+1. Clone o repositório:
 git clone https://github.com/JoaoSoaresv7/Projeto-final.git
 cd Projeto-final
 
@@ -37,8 +36,30 @@ Estrutura do Projeto:
 cliente/ — App responsável pelos pedidos dos clientes
 funcionario/ — App para o controle dos pedidos pela equipe da pizzaria
 filapizza/ — Configuração geral do projeto Django
-
 ```
 
 ## Tecnologias utilizadas
+**Geral:**
+- Django
+- AWS
 
+**BackEnd:**
+- Python
+
+**FrontEnd:**
+- JavaScript
+- HTML
+- CSS
+
+**Banco de dados:**
+- SQLite
+
+## Integrantes do grupo
+- Ariel Shalom
+- Gabriel Lima
+- Gabriel Vicente
+- João Vitor Soares
+- Julia Rosa Cosme
+- Luca Zago Couto
+- Matheus Ramos da Silva
+- Rafael Ramos
