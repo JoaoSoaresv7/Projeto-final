@@ -1,11 +1,11 @@
-# FilaPizza
+# Descrição do projeto
 
-Projeto de sistema de pedidos para pizzaria, desenvolvido com Django.  
+Projeto de sistema completo de pedidos para uma pizzaria em formato web.  
 Possui duas interfaces principais:  
-- Página do cliente para realizar pedidos  
-- Página do funcionário para visualizar e processar pedidos
+- Página do cliente para realizar pedidos.
+- Página do funcionário para visualizar e processar pedidos.
 
-## Instalação
+## Instruções de instalação
 
 1. **Clone o repositório:**
 
@@ -37,3 +37,8 @@ Estrutura do Projeto:
 cliente/ — App responsável pelos pedidos dos clientes
 funcionario/ — App para o controle dos pedidos pela equipe da pizzaria
 filapizza/ — Configuração geral do projeto Django
+
+```
+
+## Tecnologias utilizadas
+
