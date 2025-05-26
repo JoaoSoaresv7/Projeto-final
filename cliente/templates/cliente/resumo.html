@@ -1,0 +1,11 @@
+<h1>Resumo do pedido</h1>
+<p><strong>Cliente:</strong> {{ nome }} | CPF: {{ cpf }}</p>
+<p><strong>Endereço:</strong> {{ endereco }}</p>
+<p><strong>Quantidade de pizzas:</strong> {{ quantidade }}</p>
+<p><strong>Sabor:</strong> {{ sabor }}</p>
+<p><strong>Borda:</strong> {{ borda }}</p>
+<p><strong>Tamanho:</strong> {{ tamanho }}</p>
+<p><strong>Distância calculada:</strong> {{ distancia }} km</p>
+<p><strong>Valor da entrega:</strong> R$ {{ valor_entrega|floatformat:2 }}</p>
+<p><strong>Estimativa de entrega:</strong> {{ estimativa_total|floatformat:1 }} minutos</p>
+<p><strong>Total a pagar:</strong> R$ {{ total }}</p>

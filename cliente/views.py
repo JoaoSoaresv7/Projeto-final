@@ -1,46 +1,78 @@
-from django.shortcuts import render, redirect
-from .forms import PedidoForm, SaborPizzaForm, PizzaFormSet
-from .models import Pedido, Pizza
-from django.forms import formset_factory
+from django.shortcuts import render
+from .forms import PedidoForm
+from .utils import obter_coordenadas, haversine
 
-def fazer_pedido_view(request):
-    quantidade = int(request.POST.get('quantidade', 1)) if request.method == 'POST' else 1
-    SaborFormSet = formset_factory(SaborPizzaForm, extra=quantidade)
+origem_ufa = (-15.7913, -47.9300)
+BORDAS = {
+    'Sem borda': 0.00,
+    'Catupiry': 5.99,
+    'Cheddar': 5.99,
+    'Doce de leite': 8.99
+}
+TAMANHOS = {
+    'Grande': 10.00,
+    'Médio': 7.00,
+    'Pequeno': 5.00
+}
+PRECO_SABORES = {
+    '01': 29.99, '02': 50.00, '03': 29.99,
+    '04': 39.99, '05': 39.99, '06': 29.99,
+    '07': 29.99, '08': 50.00, '09': 29.99
+}
 
-    if request.method == 'POST':
-        pedido_form = PedidoForm(request.POST)
-        sabor_formset = SaborFormSet(request.POST, prefix='sabores')
+def fazer_pedido(request):
+    if request.method == "POST":
+        form = PedidoForm(request.POST)
+        if form.is_valid():
+            nome = form.cleaned_data['cliente_nome']
+            cpf = form.cleaned_data['cliente_cpf']
+            endereco = form.cleaned_data['endereco']
+            quantidade = int(form.cleaned_data['quantidade_pizzas'])
+            sabor = form.cleaned_data['sabor']
+            borda = form.cleaned_data['borda']
+            tamanho = form.cleaned_data['tamanho']
 
-        if pedido_form.is_valid() and sabor_formset.is_valid():
-            pedido = Pedido.objects.create(
-                nome=pedido_form.cleaned_data['nome'],
-                cpf=pedido_form.cleaned_data['cpf'],
-                endereco=pedido_form.cleaned_data['endereco'],
-                quantidade=quantidade,
-                borda=pedido_form.cleaned_data['borda'],
-                tamanho=pedido_form.cleaned_data['tamanho'],
-                sabor1='01'  # valor fictício
-            )
+            preco_sabor = PRECO_SABORES.get(sabor, 0)
+            preco_borda = BORDAS.get(borda, 0)
+            preco_tamanho = TAMANHOS.get(tamanho, 0)
 
-            for sabor_form in sabor_formset:
-                Pizza.objects.create(
-                    pedido=pedido,
-                    sabor=sabor_form.cleaned_data['sabor']
-                )
+            api_key = '6b3d0d47b20e418388101e31f6fbf7a6'
+            coordenadas_usuario = obter_coordenadas(endereco, api_key)
 
-            return redirect('pedido_confirmado')
+            if coordenadas_usuario:
+                lat, lon = coordenadas_usuario
+                distancia = haversine(origem_ufa[0], origem_ufa[1], lat, lon)
+                distancia_ajustada = distancia * 1.45
+                valor_entrega = max(5.00, 5.00 + distancia_ajustada * 0.5)
+
+                tempo_preparo = 15
+                velocidade_media_km_min = 60 / 60
+                tempo_entrega = distancia_ajustada / velocidade_media_km_min
+                estimativa_total = tempo_preparo + tempo_entrega
+            else:
+                valor_entrega = 5.00
+                distancia_ajustada = 0
+                estimativa_total = 15
+
+            total_pizza = preco_sabor + preco_borda + preco_tamanho
+            total = round(total_pizza * quantidade + valor_entrega, 2)
+
+            contexto = {
+                'nome': nome,
+                'cpf': cpf,
+                'endereco': endereco,
+                'quantidade': quantidade,
+                'sabor': sabor,
+                'borda': borda,
+                'tamanho': tamanho,
+                'distancia': round(distancia_ajustada, 2),
+                'valor_entrega': valor_entrega,
+                'total': total,
+                'estimativa_total': estimativa_total,
+            }
+            return render(request, 'cliente/resumo.html', contexto)
+
     else:
-        pedido_form = PedidoForm()
-        sabor_formset = SaborFormSet(prefix='sabores')
+        form = PedidoForm()
 
-    return render(request, 'cliente/fazer_pedido.html', {
-        'form': pedido_form,
-        'sabor_formset': sabor_formset,
-    })
-
-def pedido_confirmado_view(request):
-    return render(request, 'cliente/pedido_confirmado.html')
-
-def fila_pedidos_view(request):
-    pedidos = Pedido.objects.all().order_by('-id')
-    return render(request, 'funcionario/fila_pedidos.html', {'pedidos': pedidos})
+    return render(request, 'cliente/fazer_pedido.html', {'form': form})
