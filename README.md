@@ -45,6 +45,7 @@ filapizza/ — Configuração geral do projeto Django
 
 **BackEnd:**
 - Python
+- OpenCage API
 
 **FrontEnd:**
 - JavaScript
@@ -52,7 +53,8 @@ filapizza/ — Configuração geral do projeto Django
 - CSS
 
 **Banco de dados:**
-- SQLite
+- SQLite Studio
+- Biblioteca SQL
 
 ## Integrantes do grupo
 - Ariel Shalom
