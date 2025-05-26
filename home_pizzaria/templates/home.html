@@ -1,9 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Home Pizzaria</title>
-</head>
-<body>
-    <h1>Bem-vindo à Home da Pizzaria!</h1>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="{% static 'react_app/favicon.ico' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Reem+Kufi:wght@400..700&family=Sriracha&display=swap" rel="stylesheet">
+
+    <!-- iOS Icon -->
+    <link rel="apple-touch-icon" href="{% static 'react_app/logo192.png' %}" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="{% static 'react_app/manifest.json' %}" />
+
+    <!-- CSS do React -->
+    <link rel="stylesheet" href="{% static 'react_app/static/css/main.415b8e47.css' %}" />
+
+    <title>Pizza</title>
+  </head>
+  <body>
+    <noscript>Você precisa ativar o JavaScript para rodar este app.</noscript>
+    <div id="root"></div>
+
+    <!-- JS do React -->
+    <script src="{% static 'react_app/static/js/main.075e1b00.js' %}"></script>
+  </body>
 </html>
