@@ -1,0 +1,135 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #8e0e00, #1f1c18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 90px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Caixa de login */
+.login-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: zoomIn 0.7s ease forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.form-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+label {
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #f44336;
+}
+
+button {
+  padding: 12px 25px;
+  background-color: #f44336;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  animation: pulse 2s infinite;
+}
+
+button:hover {
+  background-color: #ff7961;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(244, 67, 54, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0); }
+}
+
+.messages {
+  margin-bottom: 15px;
+  text-align: left;
+  color: yellow;
+  font-size: 0.95rem;
+}
+.registro-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.registro-link:hover {
+  color: #dcd1cf;
+  text-decoration: underline;
+}
+
