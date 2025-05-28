@@ -41,7 +41,10 @@ filapizza/ — Configuração geral do projeto Django
 ## Tecnologias utilizadas
 **Geral:**
 - Django
+- Visual Studio Code
 - AWS
+- Git
+- GitHub
 
 **BackEnd:**
 - Python
@@ -51,6 +54,12 @@ filapizza/ — Configuração geral do projeto Django
 - JavaScript
 - HTML
 - CSS
+- Figma
+- Google Fonts
+- Miro
+- Django ORM
+- Hashing Django
+- Django Templates
 
 **Banco de dados:**
 - SQLite Studio
