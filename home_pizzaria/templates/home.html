@@ -1,35 +1,57 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="{% static 'react_app/favicon.ico' %}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freddy Fazbear's Pizza</title>
+  <link rel="stylesheet" href="/static/css/pizzaria.css">
+</head>
+<body>
+  <!-- Logo lateral -->
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <img src="/static/img/freddy-logo.png" alt="Logo Freddy" style="height: 90px;">
+  </div>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Reem+Kufi:wght@400..700&family=Sriracha&display=swap" rel="stylesheet">
+  <!-- Menu horizontal -->
+  <header style="text-align: center; margin-top: 40px;">
+    <nav style="display: inline-block; background-color: #330000; border-radius: 50px; padding: 20px 50px;">
+      <a href="/" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">HOME</a>
+      <a href="/carrinho" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">CARRINHO</a>
+      <a href="/fila" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">FILA</a>
+    </nav>
+  </header>
 
-    <!-- iOS Icon -->
-    <link rel="apple-touch-icon" href="{% static 'react_app/logo192.png' %}" />
+  <!-- Conteúdo central -->
+  <main style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+    <section style="background-color: #330000; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px #00000055;">
+      <h1 style="font-size: 2.8rem; color: white; margin-bottom: 20px; font-family: sans-serif;">Freddy Fazbear's Pizza</h1>
+      <p style="font-size: 1.2rem; color: #eee; margin-bottom: 30px; font-family: sans-serif;">
+        Deliciosas pizzas com sabores incríveis para alegrar seus melhores momentos. <br>
+        Faça seu pedido e aproveite uma experiência única!
+      </p>
+      <a href="/cliente/fa_pedido" style="background-color: white; color: #cc0000; padding: 15px 30px; border-radius: 40px; font-weight: bold; font-size: 1rem; text-decoration: none;">Faça seu pedido</a>
+    </section>
+  </main>
 
-    <!-- Manifest -->
-    <link rel="manifest" href="{% static 'react_app/manifest.json' %}" />
-
-    <!-- CSS do React -->
-    <link rel="stylesheet" href="{% static 'react_app/static/css/main.415b8e47.css' %}" />
-
-    <title>Pizza</title>
-  </head>
-  <body>
-    <noscript>Você precisa ativar o JavaScript para rodar este app.</noscript>
-    <div id="root"></div>
-
-    <!-- JS do React -->
-    <script src="{% static 'react_app/static/js/main.075e1b00.js' %}"></script>
-  </body>
+  <!-- Rodapé -->
+  <footer style="background-color: #111; color: #ddd; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
+    <div>
+      <img src="/static/img/freddy-logo.png" alt="Logo Rodapé" style="height: 50px;">
+    </div>
+    <div style="display: flex; gap: 50px;">
+      <div>
+        <strong style="color: #f44336;">Contato</strong><br>
+        +55 (11) 99999-9999<br>
+        contato@freddypizza.com
+      </div>
+      <div>
+        <strong style="color: #f44336;">Endereço</strong><br>
+        Rua dos Animatrônicos, 123 - Cidade do Mistério
+      </div>
+      <div>
+        <a href='funcionario/login'>Acesso Funcionário</a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
