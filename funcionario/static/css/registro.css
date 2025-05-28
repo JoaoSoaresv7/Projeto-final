@@ -8,7 +8,7 @@
 
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #8e0e00, #1f1c18);
+  background: #FFF6E5; /* fundo principal */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,11 +40,11 @@ body {
 
 /* Caixa do formulário */
 .form-box {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.7); /* fundo mais claro */
   padding: 40px;
   border-radius: 15px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -53,7 +53,7 @@ body {
 
 /* Título */
 h2 {
-  color: #fff;
+  color: #3E3E3E; /* texto principal */
   margin-bottom: 20px;
   font-size: 2rem;
 }
@@ -68,7 +68,7 @@ h2 {
 }
 
 label {
-  color: #fff;
+  color: #3E3E3E; /* texto principal */
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -77,43 +77,43 @@ input {
   padding: 10px;
   width: 100%;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #F4D35E; /* borda cor secundária */
   font-size: 1rem;
 }
 
 input:focus {
   outline: none;
   transform: scale(1.02);
-  box-shadow: 0 0 10px #f44336;
+  box-shadow: 0 0 10px #F4D35E; /* sombra cor secundária */
 }
 
 button {
   padding: 12px 25px;
-  background-color: #f44336;
+  background-color: #F4D35E; /* cor secundária */
   border: none;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: bold;
-  color: white;
+  color: #3E3E3E; /* texto principal */
   cursor: pointer;
   margin-top: 10px;
   animation: pulse 2s infinite;
 }
 
 button:hover {
-  background-color: #ff7961;
+  background-color: #e0c33e; /* tom mais escuro cor secundária */
   transform: scale(1.05);
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+    box-shadow: 0 0 0 0 rgba(244, 211, 94, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+    box-shadow: 0 0 0 10px rgba(244, 211, 94, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+    box-shadow: 0 0 0 0 rgba(244, 211, 94, 0);
   }
 }
 

@@ -1,57 +1,90 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Freddy Fazbear's Pizza</title>
-  <link rel="stylesheet" href="/static/css/pizzaria.css">
-</head>
-<body>
-  <!-- Logo lateral -->
-  <div style="position: absolute; top: 20px; left: 20px;">
-    <img src="/static/img/freddy-logo.png" alt="Logo Freddy" style="height: 90px;">
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landing Page Pizzaria</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Reem+Kufi:wght@400..700&family=Sriracha&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'img/logo.png' %}" alt="Logo Pizzaria" class="logo" />
+      <nav>
+        <a href="#">Home</a>
+        <a href="#sobre-nos">Sobre Nós</a>
+        <a href="#contato">Contato</a>
+        <a href="cliente/fila">Fila</a>
+        <a href="#" title="Carrinho">🛒</a>
+      </nav>
+    </header>
 
-  <!-- Menu horizontal -->
-  <header style="text-align: center; margin-top: 40px;">
-    <nav style="display: inline-block; background-color: #330000; border-radius: 50px; padding: 20px 50px;">
-      <a href="/" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">HOME</a>
-      <a href="/carrinho" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">CARRINHO</a>
-      <a href="/fila" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">FILA</a>
-    </nav>
-  </header>
-
-  <!-- Conteúdo central -->
-  <main style="display: flex; justify-content: center; align-items: center; height: 70vh;">
-    <section style="background-color: #330000; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px #00000055;">
-      <h1 style="font-size: 2.8rem; color: white; margin-bottom: 20px; font-family: sans-serif;">Freddy Fazbear's Pizza</h1>
-      <p style="font-size: 1.2rem; color: #eee; margin-bottom: 30px; font-family: sans-serif;">
-        Deliciosas pizzas com sabores incríveis para alegrar seus melhores momentos. <br>
-        Faça seu pedido e aproveite uma experiência única!
-      </p>
-      <a href="/cliente/fa_pedido" style="background-color: white; color: #cc0000; padding: 15px 30px; border-radius: 40px; font-weight: bold; font-size: 1rem; text-decoration: none;">Faça seu pedido</a>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Sua pizza favorita<br />Entregue em Sua Casa.</h1>
+        <p>
+          Diversos Sabores deliciosos para alegrar os seus melhores momentos.
+          Peça já a sua e receba um mimo surpresa.
+        </p>
+        <a href="cliente/fa_pedido" class="btn-pedido">Faça seu pedido →</a>
+      </div>
+      <img src="{% static 'img/pizza2.png' %}" alt="Pizza" class="hero-image" />
     </section>
-  </main>
 
-  <!-- Rodapé -->
-  <footer style="background-color: #111; color: #ddd; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-    <div>
-      <img src="/static/img/freddy-logo.png" alt="Logo Rodapé" style="height: 50px;">
-    </div>
-    <div style="display: flex; gap: 50px;">
+    <section class="sobre-nos" id="sobre-nos">
+      <img src="{% static 'img/pizza.jpg' %}" alt="Pizza sendo pega" class="sobre-image" />
+      <div class="sobre-text">
+        <h2>Sobre Nós</h2>
+        <h3>É Importante Conhecer Quem Alimenta Você</h3>
+        <p>
+          Somos uma pizzaria universitária dedicada a trazer a você as pizzas
+          mais deliciosas do DF.
+        </p>
+        <p>
+          Nossa história começou com um projeto da matéria de Estrutura de
+          Dados, com o desejo de criar um trabalho inovador e útil.
+        </p>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <h2>Contate-Nos</h2>
+      <h3>Tem uma pergunta em mente?</h3>
+      <p>Deixe-Nos ajudá-los</p>
+
+      <form id="form-contato">
+        <input type="email" placeholder="seu_email@gmail.com" required />
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <footer class="footer">
       <div>
-        <strong style="color: #f44336;">Contato</strong><br>
-        +55 (11) 99999-9999<br>
-        contato@freddypizza.com
+        <img src="{% static 'img/logo.png' %}" alt="Logo Pizzaria" class="logo-footer" />
       </div>
       <div>
-        <strong style="color: #f44336;">Endereço</strong><br>
-        Rua dos Animatrônicos, 123 - Cidade do Mistério
+        <p>
+          <strong>Qualidade</strong> <br />
+          61 99816-4471
+        </p>
+        <p>
+          <strong>Ajuda</strong> <br />
+          dev.gabrielimalmeida@gmail.com
+        </p>
+        <p>
+          <strong>Nossa Marca</strong> <br />
+          gabrielimalmeida@gmail.com
+        </p>
       </div>
       <div>
-        <a href="funcionario/login" id="acess-func">ACESSO FUNCIONÁRIO</a>
+        <a href="funcionario/login">Acesso Funcionário</a>
+        <p>Política de Privacidade</p>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
 </html>

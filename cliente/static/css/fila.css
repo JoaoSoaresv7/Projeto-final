@@ -1,0 +1,120 @@
+/* Reset e base herdada */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Reem Kufi", sans-serif !important;
+}
+
+body {
+  background-color: #fff6e8;
+  color: #3c3c3c;
+  line-height: 1.4;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: #3c3c3c;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Usando grid para listar os pedidos em cards */
+.pedido-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cada pedido - card retangular */
+.pedido {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 180px;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.pedido:hover {
+  transform: translateY(-6px);
+}
+
+/* Dados do pedido */
+.pedido-info p {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: #3c3c3c;
+}
+
+.pedido-info small {
+  color: #6f6f6f;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* Status e botão */
+.pedido-status {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #000;
+  user-select: none;
+}
+
+.status-pendente {
+  background-color: #f4d06f;
+}
+
+.status-processando {
+  background-color: #e7c75e;
+}
+
+.status-concluido {
+  background-color: #7bc950;
+  color: #fff;
+}
+
+.btn-processar {
+  background-color: #e7c75e;
+  border: none;
+  border-radius: 30px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+  transition: background-color 0.2s ease;
+}
+
+.btn-processar:hover {
+  background-color: #d4b84a;
+}
+
+/* Responsividade mobile - grid já cuida de boa,
+   só ajusta altura dos cards */
+@media (max-width: 600px) {
+  .pedido {
+    height: auto;
+  }
+}

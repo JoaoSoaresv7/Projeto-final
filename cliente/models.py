@@ -21,7 +21,9 @@ class Pedido(models.Model):
     quantidade = models.IntegerField()
     borda = models.CharField(max_length=1, choices=BORDAS)
     tamanho = models.CharField(max_length=1, choices=TAMANHOS)
-    sabor1 = models.CharField(max_length=2, choices=SABORES, default='01')  # compatibilidade
+    sabor1 = models.CharField(max_length=2, choices=SABORES, default='01')
+    concluido = models.BooleanField(default=False)  # ✅ Adicionado para o sistema de conclusão
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Pedido de {self.nome} - {self.quantidade} pizza(s)'

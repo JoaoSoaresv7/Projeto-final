@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Page - Pedidos</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="{% static 'img/logo.png' %}" alt="Perfil" />
+            <div class="name">FUNCIONÁRIO</div>
+        </div>
+        <div class="divider"></div>
+        <div class="fila" id="filaList">
+            {% for pedido in pedidos %}
+            {% if pedido.id %}
+            <div>
+                <p class="pedido-item" data-id="{{ pedido.id }}" data-nome="{{ pedido.nome }}"
+                    data-cpf="{{ pedido.cpf }}" data-endereco="{{ pedido.endereco }}"
+                    data-quantidade="{{ pedido.quantidade }}" data-borda="{{ pedido.get_borda_display }}"
+                    data-tamanho="{{ pedido.get_tamanho_display }}" data-sabores="{{ pedido.get_sabor1_display }}"
+                    onclick="mostrarDetalhe(this)">
+                    Pedido #{{ pedido.id }} - {{ pedido.nome }}
+                </p>
+
+                <!-- Botões de ação -->
+                <form action="{% url 'concluir_pedido' pedido.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Concluir</button>
+                </form>
+
+                <form action="{% url 'excluir_pedido' pedido.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Excluir</button>
+                </form>
+            </div>
+            {% endif %}
+            {% empty %}
+            <p class="pedido-item">Nenhum pedido na fila.</p>
+            {% endfor %}
+        </div>
+        <div class="logout" onclick="window.location.href='{% url 'logout_funcionario' %}'">SAIR</div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        {% for pedido in pedidos %}
+        {% if pedido.id %}
+        <button class="btn-senha" data-id="{{ pedido.id }}" data-nome="{{ pedido.nome }}" data-cpf="{{ pedido.cpf }}"
+            data-endereco="{{ pedido.endereco }}" data-quantidade="{{ pedido.quantidade }}"
+            data-borda="{{ pedido.get_borda_display }}" data-tamanho="{{ pedido.get_tamanho_display }}"
+            data-sabores="{{ pedido.get_sabor1_display }}" onclick="mostrarDetalhe(this)">
+            Pedido {{ pedido.id }}
+        </button>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="detalhe-pedido" id="detalhePedido" style="display: none;">
+        <h2 id="detalheTitulo">Detalhes do Pedido</h2>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p class="message-{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="info">Nome: <span id="detalheNome"></span></div>
+        <div class="info">CPF: <span id="detalheCPF"></span></div>
+        <div class="info">Endereço: <span id="detalheEndereco"></span></div>
+        <div class="info">Quantidade: <span id="detalheQuantidade"></span></div>
+        <div class="info">Borda: <span id="detalheBorda"></span></div>
+        <div class="info">Tamanho: <span id="detalheTamanho"></span></div>
+        <div class="info">Sabores: <span id="detalheSabores"></span></div>
+        <button class="btn-voltar" onclick="fecharDetalhe()">VOLTAR</button>
+    </div>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+
+</html>

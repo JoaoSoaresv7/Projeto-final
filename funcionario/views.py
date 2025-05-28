@@ -1,18 +1,24 @@
 from django.shortcuts import render, redirect
 from cliente.models import Pedido
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.contrib.auth.hashers import make_password, check_password
 from .models import Funcionario
-from django.contrib.auth.hashers import make_password
+from django.shortcuts import get_object_or_404
+from .models import Funcionario, Etiqueta
 
 
 def listar_pedidos(request):
-    pedidos = Pedido.objects.all().order_by('id')  # Ordem crescente, do mais antigo para o mais novo
+    # Verifica se o funcionário está logado
+    if 'funcionario_id' not in request.session:
+        return redirect('login_funcionario')
+
+    pedidos = Pedido.objects.all().order_by('id')
     return render(request, 'funcionario/listar_pedidos.html', {'pedidos': pedidos})
 
 def processar_pedido_view(request):
+    if 'funcionario_id' not in request.session:
+        return redirect('login_funcionario')
+
     if request.method == "POST":
         pedido = Pedido.objects.first()
         if pedido:
@@ -24,15 +30,20 @@ def processar_pedido_view(request):
 
 def logar_func(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('username')  # pode mudar para 'email'
         senha = request.POST.get('senha')
-        user = authenticate(request, username=username, password=senha)
-        if user is not None:
-            login(request, user)
-            messages.success(request, 'Login realizado com sucesso.')
-            return redirect('listar_pedidos')
-        else:
-            messages.error(request, 'Usuário ou senha inválidos.')
+
+        try:
+            funcionario = Funcionario.objects.get(email=email)
+            if check_password(senha, funcionario.senha):
+                request.session['funcionario_id'] = funcionario.id
+                messages.success(request, 'Login realizado com sucesso.')
+                return redirect('home_page')
+            else:
+                messages.error(request, 'Senha incorreta.')
+        except Funcionario.DoesNotExist:
+            messages.error(request, 'Funcionário não encontrado.')
+
     return render(request, 'funcionario/login.html')
 
 def registrar_funcionario(request):
@@ -42,7 +53,6 @@ def registrar_funcionario(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        # Verifica se já existe
         if Funcionario.objects.filter(cpf=cpf).exists():
             messages.error(request, "CPF já registrado.")
         elif Funcionario.objects.filter(email=email).exists():
@@ -56,6 +66,32 @@ def registrar_funcionario(request):
             )
             funcionario.save()
             messages.success(request, "Funcionário registrado com sucesso!")
-            return redirect('login_funcionario')  # ajusta se seu nome de URL for outro
+            return redirect('login_funcionario')
 
     return render(request, 'funcionario/registro.html')
+
+def home_page(request):
+    if 'funcionario_id' not in request.session:
+        return redirect('login_funcionario')
+
+    pedidos = Pedido.objects.all().order_by('id')
+    return render(request, 'funcionario/home_page.html', {'pedidos': pedidos})
+
+def logout_funcionario(request):
+    request.session.flush()  # limpa a sessão
+    messages.success(request, "Logout realizado com sucesso.")
+    return redirect('login_funcionario')
+
+def concluir_pedido(request, pedido_id):
+    pedido = get_object_or_404(Pedido, id=pedido_id)
+    pedido.concluido = True
+    pedido.save()
+    messages.success(request, f'Pedido de {pedido.nome} marcado como concluído.')
+    return redirect('home_page')
+
+def excluir_pedido(request, pedido_id):
+    pedido = get_object_or_404(Pedido, id=pedido_id)
+    Etiqueta.objects.create(pedido=pedido, acao="Pedido excluído")
+    pedido.delete()
+    messages.success(request, "Pedido excluído e etiqueta criada.")
+    return redirect('home_page')

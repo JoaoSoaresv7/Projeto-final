@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,16 +6,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Registro Funcionário</title>
-    <link rel="stylesheet" href="/static/css/registro.css" />
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}" />
 </head>
 
 <body>
     <div class="logo">
-        <img src="/static/img/freddy-logo.png" alt="Logo Freddy" />
+        <img src="{% static 'img/logo.png' %}" alt="Logo Freddy" />
     </div>
 
     <div class="form-box">
         <h2>Crie sua conta</h2>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
         <form method="post">
             {% csrf_token %}
 
@@ -67,6 +77,10 @@
 
             <button type="submit">Registrar</button>
         </form>
+
+        <p style="margin-top: 1rem;">Já tem uma conta?
+            <a href="{% url 'login_funcionario' %}">Faça login</a>
+        </p>
     </div>
 </body>
 
