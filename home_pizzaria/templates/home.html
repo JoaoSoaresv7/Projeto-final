@@ -1,9 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Home Pizzaria</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freddy Fazbear's Pizza</title>
+  <link rel="stylesheet" href="/static/css/pizzaria.css">
 </head>
 <body>
-    <h1>Bem-vindo à Home da Pizzaria!</h1>
+  <!-- Logo lateral -->
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <img src="/static/img/freddy-logo.png" alt="Logo Freddy" style="height: 90px;">
+  </div>
+
+  <!-- Menu horizontal -->
+  <header style="text-align: center; margin-top: 40px;">
+    <nav style="display: inline-block; background-color: #330000; border-radius: 50px; padding: 20px 50px;">
+      <a href="/" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">HOME</a>
+      <a href="/carrinho" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">CARRINHO</a>
+      <a href="/fila" style="color: white; font-size: 1.8rem; text-decoration: none; margin: 0 30px; font-family: sans-serif;">FILA</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo central -->
+  <main style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+    <section style="background-color: #330000; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px #00000055;">
+      <h1 style="font-size: 2.8rem; color: white; margin-bottom: 20px; font-family: sans-serif;">Freddy Fazbear's Pizza</h1>
+      <p style="font-size: 1.2rem; color: #eee; margin-bottom: 30px; font-family: sans-serif;">
+        Deliciosas pizzas com sabores incríveis para alegrar seus melhores momentos. <br>
+        Faça seu pedido e aproveite uma experiência única!
+      </p>
+      <a href="/cliente/fa_pedido" style="background-color: white; color: #cc0000; padding: 15px 30px; border-radius: 40px; font-weight: bold; font-size: 1rem; text-decoration: none;">Faça seu pedido</a>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer style="background-color: #111; color: #ddd; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
+    <div>
+      <img src="/static/img/freddy-logo.png" alt="Logo Rodapé" style="height: 50px;">
+    </div>
+    <div style="display: flex; gap: 50px;">
+      <div>
+        <strong style="color: #f44336;">Contato</strong><br>
+        +55 (11) 99999-9999<br>
+        contato@freddypizza.com
+      </div>
+      <div>
+        <strong style="color: #f44336;">Endereço</strong><br>
+        Rua dos Animatrônicos, 123 - Cidade do Mistério
+      </div>
+      <div>
+        <a href='funcionario/login'>Acesso Funcionário</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
