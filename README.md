@@ -65,44 +65,45 @@ filapizza/ — Configuração geral do projeto Django
 - Biblioteca SQL
 
 ## 📁 Estrutura dos Arquivos
-
--PROJETO-FINAL/
-├── cliente/ 
-│ ├── migrations/ 
-│ ├── templates/ 
-│ ├── init.py
-│ ├── admin.py
-│ ├── apps.py
-│ ├── forms.py
-│ ├── models.py
-│ ├── tests.py
-│ ├── urls.py
-│ ├── utils.py
-│ └── views.py
-├── funcionario/ 
-│ ├── migrations/
-│ ├── static/ 
-│ ├── templates/ 
-│ ├── init.py
-│ ├── admin.py
-│ ├── apps.py
-│ ├── models.py
-│ ├── tests.py
-│ ├── urls.py
-│ └── views.py
-├── fila_pizza/ 
-│ ├── init.py
-│ ├── settings.py 
-│ ├── urls.py 
-│ └── wsgi.py
-├── home_pizzaria/ 
-├── pedidos_shared/ 
-│ ├── init.py
-│ └── logica.py 
-├── venv/ 
-├── db.sqlite3 
-├── manage.py 
+```
+PROJETO-FINAL/
+├── cliente/
+│   ├── migrations/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── utils.py
+│   └── views.py
+├── funcionario/
+│   ├── migrations/
+│   ├── static/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── fila_pizza/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── home_pizzaria/
+├── pedidos_shared/
+│   ├── __init__.py
+│   └── logica.py
+├── venv/
+├── db.sqlite3
+├── manage.py
 └── README.md
+```
 
 ## Integrantes do grupo
 - Ariel Shalom
