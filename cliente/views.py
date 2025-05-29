@@ -59,7 +59,8 @@ def fila_pedidos(request):
     pedidos = Pedido.objects.filter(concluido=False).order_by('id')
 
     velocidade_media_kmh = 60
-    preco_frete_por_km = 2.00
+    preco_frete_por_km = 0.45
+    
 
     for pedido in pedidos:
         coord_cliente = obter_coordenadas(pedido.endereco, API_KEY)
@@ -69,7 +70,7 @@ def fila_pedidos(request):
             lat2, lon2 = coord_cliente
             distancia_km = haversine(lat1, lon1, lat2, lon2)
             distancia_km *= 1.45
-            pedido.quilometragem = round(distancia_km, 2)
+            pedido.quilometragem = round(distancia_km, 1)
             pedido.tempo_entrega = int((distancia_km / velocidade_media_kmh) * 60) + 30
             pedido.preco_frete = round(distancia_km * preco_frete_por_km, 2)
         else:
@@ -88,3 +89,5 @@ def fila_pedidos(request):
 
     return render(request, 'cliente/fila_pedidos.html', {'pedidos': pedidos})
 
+def cardapio(request):
+    return render(request, 'cliente/cardapio.html')
