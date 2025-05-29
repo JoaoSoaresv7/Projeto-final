@@ -8,7 +8,7 @@ Possui duas interfaces principais:
 ## Instruções de instalação
 ```bash
 
-1. Clone o repositório:
+1. Clone o repositório (Da branch 'frontend'):
 git clone https://github.com/JoaoSoaresv7/Projeto-final.git
 cd Projeto-final
 
