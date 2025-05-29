@@ -1,15 +1,14 @@
-# FilaPizza
+# Descrição do projeto
 
-Projeto de sistema de pedidos para pizzaria, desenvolvido com Django.  
+Projeto de sistema completo de pedidos para uma pizzaria em formato web.  
 Possui duas interfaces principais:  
-- Página do cliente para realizar pedidos  
-- Página do funcionário para visualizar e processar pedidos
+- Página do cliente para realizar pedidos.
+- Página do funcionário para visualizar e processar pedidos.
 
-## Instalação
-
-1. **Clone o repositório:**
-
+## Instruções de instalação
 ```bash
+
+1. Clone o repositório (Da branch 'frontend'):
 git clone https://github.com/JoaoSoaresv7/Projeto-final.git
 cd Projeto-final
 
@@ -37,3 +36,40 @@ Estrutura do Projeto:
 cliente/ — App responsável pelos pedidos dos clientes
 funcionario/ — App para o controle dos pedidos pela equipe da pizzaria
 filapizza/ — Configuração geral do projeto Django
+```
+
+## Tecnologias utilizadas
+**Geral:**
+- Django
+- Visual Studio Code
+- Git
+- GitHub
+
+**BackEnd:**
+- Python
+- OpenCage API
+
+**FrontEnd:**
+- JavaScript
+- HTML
+- CSS
+- Figma
+- Google Fonts
+- Miro
+- Django ORM
+- Hashing Django
+- Django Templates
+
+**Banco de dados:**
+- SQLite Studio
+- Biblioteca SQL
+
+## Integrantes do grupo
+- Ariel Shalom
+- Gabriel Lima
+- Gabriel Vicente
+- João Vitor Soares
+- Julia Rosa Cosme
+- Luca Zago Couto
+- Matheus Ramos da Silva
+- Rafael Ramos
