@@ -42,7 +42,6 @@ filapizza/ — Configuração geral do projeto Django
 **Geral:**
 - Django
 - Visual Studio Code
-- AWS
 - Git
 - GitHub
 
