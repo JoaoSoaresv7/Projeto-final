@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import PedidoForm
 from .utils import obter_coordenadas, haversine
+from django.http import HttpResponse
 
 origem_ufa = (-15.7913, -47.9300)
 BORDAS = {
@@ -76,3 +77,15 @@ def fazer_pedido(request):
         form = PedidoForm()
 
     return render(request, 'cliente/fazer_pedido.html', {'form': form})
+
+import logging
+
+logger = logging.getLogger('myapp')  # use o nome definido no settings.py
+
+def minha_view(request):
+    logger.debug("Isso é uma mensagem de DEBUG")
+    logger.info("Isso é uma mensagem de INFO")
+    logger.warning("Isso é uma mensagem de WARNING")
+    logger.error("Isso é uma mensagem de ERROR")
+    logger.critical("Isso é uma mensagem de CRITICAL")
+    return HttpResponse("Veja os logs para mais informações.")
