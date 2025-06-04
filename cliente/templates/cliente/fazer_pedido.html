@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -122,3 +123,129 @@
   </div>
 </body>
 </html>
+=======
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fazer Pedido - Pizzaria</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff6e5;
+      padding: 2rem;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    form > div {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    select, input[type=text] {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #f4d35e;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 5rem;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #3e3e3e;
+      color: white;
+    }
+    .errorlist {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      list-style: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Faça seu pedido</h1>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div>
+        {{ form.cliente_nome.label_tag }}
+        {{ form.cliente_nome }}
+        {{ form.cliente_nome.errors }}
+      </div>
+
+      <div>
+        {{ form.cliente_cpf.label_tag }}
+        {{ form.cliente_cpf }}
+        {{ form.cliente_cpf.errors }}
+      </div>
+
+      <div>
+        {{ form.endereco.label_tag }}
+        {{ form.endereco }}
+        {{ form.endereco.errors }}
+      </div>
+
+      <div>
+        {{ form.quantidade_pizzas.label_tag }}
+        {{ form.quantidade_pizzas }}
+        {{ form.quantidade_pizzas.errors }}
+      </div>
+
+      <div>
+        {{ form.sabor.label_tag }}
+        {{ form.sabor }}
+        {{ form.sabor.errors }}
+      </div>
+
+      <div>
+        {{ form.borda.label_tag }}
+        {{ form.borda }}
+        {{ form.borda.errors }}
+      </div>
+
+      <div>
+        {{ form.tamanho.label_tag }}
+        {{ form.tamanho }}
+        {{ form.tamanho.errors }}
+      </div>
+
+      <div>
+        {{ form.forma_de_pagamento.label_tag }}
+        {{ form.forma_de_pagamento }}
+        {{ form.forma_de_pagamento.errors }}
+      </div>
+
+      <button type="submit">Enviar Pedido</button>
+    </form>
+  </div>
+</body>
+</html>
+>>>>>>> 81e4968abde002e858a3addca30aac4f09a89e45

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -88,3 +89,95 @@
     <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>
+=======
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landing Page Pizzaria</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Reem+Kufi:wght@400..700&family=Sriracha&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header>
+      <a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo Pizzaria" class="logo"/></a>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#sobre-nos">Sobre Nós</a>
+        <a href="#contato">Contato</a>
+        <a href="cliente/fila">Fila</a>
+        <a href="cliente/cardapio">Cardapio</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Sua pizza favorita<br />entregue em sua casa.</h1>
+        <p>
+          Diversos sabores deliciosos para alegrar os seus melhores momentos.
+          Peça já a sua e receba um mimo surpresa.
+        </p>
+        <a href="cliente/fa_pedido" class="btn-pedido">Faça seu pedido →</a>
+      </div>
+      <img src="{% static 'img/pizza2.png' %}" alt="Pizza" class="hero-image" />
+    </section>
+
+    <section class="sobre-nos" id="sobre-nos">
+      <img src="{% static 'img/pizza.jpg' %}" alt="Pizza sendo pega" class="sobre-image" />
+      <div class="sobre-text">
+        <h2>SOBRE NÓS</h2>
+        <h3>É importante conhecer quem alimenta você</h3>
+        <p>
+          Somos uma pizzaria universitária dedicada a trazer a você as pizzas
+          mais deliciosas do DF.
+        </p>
+        <p>
+          Nossa história começou com um projeto da matéria de Estrutura de
+          Dados, com o desejo de criar um trabalho inovador e útil.
+        </p>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <h2>CONTATE-NOS</h2>
+      <h3>Tem uma pergunta em mente?</h3>
+      <p>Deixe-nos ajudá-los:</p>
+
+      <form id="form-contato">
+        <input type="email" placeholder="seu_email@gmail.com" required />
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <img src="{% static 'img/logo.png' %}" alt="Logo Pizzaria" class="logo-footer" />
+      </div>
+      <div>
+        <p>
+          <strong>Qualidade</strong> <br />
+          61 99816-4471
+        </p>
+        <p>
+          <strong>Ajuda</strong> <br />
+          dev.gabrielimalmeida@gmail.com
+        </p>
+        <p>
+          <strong>Nossa Marca</strong> <br />
+          gabrielimalmeida@gmail.com
+        </p>
+      </div>
+      <div>
+        <a href="funcionario/login">Acesso Funcionário</a>
+        <p>Política de Privacidade</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
+>>>>>>> 81e4968abde002e858a3addca30aac4f09a89e45

@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 asgiref==3.8.1
 certifi @ file:///private/tmp/python-certifi-20231118-4904-1xnuy1a/certifi-2023.11.17
 Django==5.2
 Pygments @ file:///private/tmp/pygments-20231121-5322-nddh6n/pygments-2.17.2
 pywatchman==1.4.1
 sqlparse==0.5.3
+=======
+asgiref==3.8.1
+certifi @ file:///private/tmp/python-certifi-20231118-4904-1xnuy1a/certifi-2023.11.17
+Django==5.2
+Pygments @ file:///private/tmp/pygments-20231121-5322-nddh6n/pygments-2.17.2
+pywatchman==1.4.1
+sqlparse==0.5.3
+>>>>>>> 81e4968abde002e858a3addca30aac4f09a89e45

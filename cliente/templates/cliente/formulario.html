@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -76,3 +77,83 @@
 <p><strong>Total a pagar:</strong> R$ {{ total }}</p>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido de Pizza</title>
+</head>
+<body>
+    <h1>Faça seu Pedido</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required><br><br>
+
+        <label>CPF:</label><br>
+        <input type="text" name="cpf" required><br><br>
+
+        <label>Endereço:</label><br>
+        <input type="text" name="endereco" required><br><br>
+
+        <label>Sabor:</label><br>
+        <select name="sabor">
+            <option value="01">Portuguesa</option>
+            <option value="02">Chocolate</option>
+            <option value="03">Peixe</option>
+            <option value="04">Margarita</option>
+            <option value="05">Quatro-queijos</option>
+            <option value="06">Marguerita</option>
+            <option value="07">Calabresa</option>
+            <option value="08">Peperoni</option>
+            <option value="09">Alho e óleo</option>
+        </select><br><br>
+
+        <label>Borda:</label><br>
+        <select name="borda">
+            <option value="0">Sem borda</option>
+            <option value="1">Catupiry</option>
+            <option value="2">Cheddar</option>
+            <option value="3">Doce de leite</option>
+        </select><br><br>
+
+        <label>Tamanho:</label><br>
+        <select name="tamanho">
+            <option value="0">Grande</option>
+            <option value="1">Médio</option>
+            <option value="2">Pequeno</option>
+        </select><br><br>
+
+        <label>Quantidade:</label><br>
+        <select name="quantidade">
+            {% for i in "123456" %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Forma de Pagamento:</label><br>
+        <select name="Forma de Pagamento">
+            <option>Crédito</option>
+            <option>Debíto</option>
+            <option>Dinheiro</option>
+            <option>Pix</option>
+        </select><br><br>
+
+        <button type="submit">Enviar Pedido</button>
+    </form>
+    <h1>Resumo do pedido</h1>
+<p><strong>Cliente:</strong> {{ nome }} | CPF: {{ cpf }}</p>
+<p><strong>Endereço:</strong> {{ endereco }}</p>
+<p><strong>Quantidade de pizzas:</strong> {{ quantidade }}</p>
+<p><strong>Sabor:</strong> {{ sabor }}</p>
+<p><strong>Borda:</strong> {{ borda }}</p>
+<p><strong>Tamanho:</strong> {{ tamanho }}</p>
+<p><strong>Distância calculada:</strong> {{ distancia }} km</p>
+<p><strong>Valor da entrega:</strong> R$ {{ valor_entrega|floatformat:2 }}</p>
+<p><strong>Estimativa de entrega:</strong> {{ estimativa_total|floatformat:1 }} minutos</p>
+<p><strong>Total a pagar:</strong> R$ {{ total }}</p>
+</body>
+</html>
+>>>>>>> 81e4968abde002e858a3addca30aac4f09a89e45
