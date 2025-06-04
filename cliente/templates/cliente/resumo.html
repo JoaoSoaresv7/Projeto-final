@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resumo do Pedido</title>
+</head>
+<body>
+  <h1>Resumo do Pedido</h1>
+  <p><strong>Nome:</strong> {{ nome }}</p>
+  <p><strong>CPF:</strong> {{ cpf }}</p>
+  <p><strong>Endereço:</strong> {{ endereco }}</p>
+  <p><strong>Quantidade de pizzas:</strong> {{ quantidade }}</p>
+  <p><strong>Sabor:</strong> {{ sabor }}</p>
+  <p><strong>Borda:</strong> {{ borda }}</p>
+  <p><strong>Tamanho:</strong> {{ tamanho }}</p>
+  <p><strong>Valor total:</strong> R$ {{ total }}</p>
+  <p><strong>Estimativa de entrega (min):</strong> {{ estimativa_total|floatformat:0 }}</p>
+</body>
+</html>

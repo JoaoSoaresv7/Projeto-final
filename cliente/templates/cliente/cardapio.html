@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sabores, Bordas e Tamanhos - Freddy Fazbear's Pizza</title>
+  <link rel="stylesheet" href="{% static 'css/sabores.css' %}" />
+</head>
+  <body>
+    <header>
+      <a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo Pizzaria" class="logo" /></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="#">Cardapio</a>
+      </nav>
+    </header>
+
+  <!-- Conteúdo principal -->
+  <main class="container">
+    <h1 class="titulo-principal">Sabores, Bordas e Tamanhos</h1>
+
+    <!-- SABORES -->
+    <section class="cardapio-section">
+      <h2 class="section-title">Sabores</h2>
+      <div class="grid-sabores">
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-portuguesa.png' %}" alt="Portuguesa" />
+          <h3>Portuguesa</h3>
+          <p class="preco">R$ 29,99</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-chocolate.png' %}" alt="Chocolate" />
+          <h3>Chocolate</h3>
+          <p class="preco">R$ 50,00</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-peixe.png' %}" alt="Peixe" />
+          <h3>Peixe</h3>
+          <p class="preco">R$ 29,99</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-marguerita.png' %}" alt="Marguerita" />
+          <h3>Marguerita</h3>
+          <p class="preco">R$ 39,99</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/quatro-queijo.png' %}" alt="Quatro Queijos" />
+          <h3>Quatro Queijos</h3>
+          <p class="preco">R$ 39,99</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-calabresa.png' %}" alt="Calabresa" />
+          <h3>Calabresa</h3>
+          <p class="preco">R$ 29,99</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-peperoni.png' %}" alt="Peperoni" />
+          <h3>Peperoni</h3>
+          <p class="preco">R$ 50,00</p>
+        </article>
+        <article class="item-sabor">
+          <img src="{% static 'img/pizza-alhooelo.png' %}" alt="Alho e Óleo" />
+          <h3>Alho e Óleo</h3>
+          <p class="preco">R$ 29,99</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BORDAS -->
+    <section class="cardapio-section">
+      <h2 class="section-title">Bordas</h2>
+      <div class="grid-bordas">
+        <div class="item-borda">
+          <img src="{% static 'img/bordas/sem.png' %}" alt="Sem Borda" />
+          <span><strong>Sem borda</strong> — R$ 0,00</span>
+        </div>
+        <div class="item-borda">
+          <img src="{% static 'img/bordas/catupiry.png' %}" alt="Catupiry" />
+          <span><strong>Catupiry</strong> — R$ 5,99</span>
+        </div>
+        <div class="item-borda">
+          <img src="{% static 'img/bordas/cheddar.png' %}" alt="Cheddar" />
+          <span><strong>Cheddar</strong> — R$ 5,99</span>
+        </div>
+        <div class="item-borda">
+          <img src="{% static 'img/bordas/doce-de-leite.png' %}" alt="Doce de Leite" />
+          <span><strong>Doce de leite</strong> — R$ 8,99</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAMANHOS -->
+    <section class="cardapio-section">
+      <h2 class="section-title">Tamanhos</h2>
+      <div class="grid-tamanhos">
+        <div class="item-tamanho" tabindex="0" role="button" aria-label="Pequeno">
+          <img src="{% static 'img/tamanhos-pizza-pequeno.png' %}" alt="Tamanho Pequeno" />
+          <span>Pequeno</span>
+        </div>
+        <div class="item-tamanho" tabindex="0" role="button" aria-label="Médio">
+          <img src="{% static 'img/tamanhos-pizza-medio.png' %}" alt="Tamanho Médio" />
+          <span>Médio</span>
+        </div>
+        <div class="item-tamanho" tabindex="0" role="button" aria-label="Grande">
+          <img src="{% static 'img/tamanhos-pizza-grande.png' %}" alt="Tamanho Grande" />
+          <span>Grande</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

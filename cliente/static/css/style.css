@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Reem Kufi", sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background-color: #fff6e8;
+  color: #3c3c3c;
+  line-height: 1.4;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+header .logo {
+  width: 80px;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav a:hover {
+  color: #e7c75e;
+}
+
+.btn-reservas {
+  background-color: #e7c75e;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4rem 3rem;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: #3c3c3c;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #6f6f6f;
+  margin-bottom: 1.5rem;
+}
+
+.btn-pedido {
+  background-color: #e7c75e;
+  border-radius: 30px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero-image {
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* Sobre Nós */
+.sobre-nos {
+  padding: 3rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+}
+
+.sobre-text {
+  max-width: 500px;
+}
+
+.sobre-text h2 {
+  color: #e7c75e;
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-text h3 {
+  font-weight: 900;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-text p {
+  color: #6f6f6f;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.sobre-image {
+  max-width: 450px;
+  border-radius: 5px;
+}
+
+/* Contato */
+.contato {
+  background-color: #fff9f1;
+  padding: 3rem 3rem;
+  text-align: center;
+}
+
+.contato h2 {
+  color: #e7c75e;
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.contato h3 {
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.contato p {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.contato form {
+  display: inline-flex;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 0.2rem 0.5rem;
+  align-items: center;
+}
+
+.contato input[type="email"] {
+  border: none;
+  outline: none;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border-radius: 30px 0 0 30px;
+  width: 250px;
+}
+
+.contato button {
+  background-color: #e7c75e;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  padding: 0.7rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 3rem;
+  font-size: 0.9rem;
+  color: #6f6f6f;
+}
+
+.footer div {
+  max-width: 300px;
+}
+
+.footer .logo-footer {
+  width: 100px;
+}
+
