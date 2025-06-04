@@ -19,6 +19,13 @@ TAMANHOS = [
     ('Pequeno', 5.00)
 ]
 
+opcoes = [
+    ('dinheiro', 'Dinheiro'),
+    ('debito', 'Cartão de Débito'),
+    ('credito', 'Cartão de Crédito'),
+    ('pix', 'PIX'),
+]
+
 QUANTIDADES = [(i, str(i)) for i in range(1,7)]
 
 class PedidoForm(forms.Form):
@@ -29,3 +36,4 @@ class PedidoForm(forms.Form):
     sabor = forms.ChoiceField(label="Sabor da pizza", choices=SABORES)
     borda = forms.ChoiceField(label="Borda", choices=[(b[0], b[0]) for b in BORDAS])
     tamanho = forms.ChoiceField(label="Tamanho da pizza", choices=[(t[0], t[0]) for t in TAMANHOS])
+    forma_de_pagamento = forms.ChoiceField(label="Forma de Pagamento", choices=opcoes)

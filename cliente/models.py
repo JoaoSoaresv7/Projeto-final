@@ -14,7 +14,12 @@ class Pedido(models.Model):
         ('08', 'Peperoni'),
         ('09', 'Alho e óleo'),
     ]
-
+    OPCAO_PAGAMENTO = [
+        ('dinheiro', 'Dinheiro'),
+        ('debito', 'Cartão de Débito'),
+        ('credito', 'Cartão de Crédito'),
+        ('pix', 'PIX'),
+    ]
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=11)
     endereco = models.CharField(max_length=200)
@@ -22,8 +27,13 @@ class Pedido(models.Model):
     borda = models.CharField(max_length=1, choices=BORDAS)
     tamanho = models.CharField(max_length=1, choices=TAMANHOS)
     sabor1 = models.CharField(max_length=2, choices=SABORES, default='01')
-    concluido = models.BooleanField(default=False)  # ✅ Adicionado para o sistema de conclusão
+    concluido = models.BooleanField(default=False) 
     created_at = models.DateTimeField(auto_now_add=True)
+    forma_de_pagamento = models.CharField(
+        max_length=10,
+        choices=OPCAO_PAGAMENTO,
+        verbose_name="Forma de Pagamento"
+    )
 
     def __str__(self):
         return f'Pedido de {self.nome} - {self.quantidade} pizza(s)'

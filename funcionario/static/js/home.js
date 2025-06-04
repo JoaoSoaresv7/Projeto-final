@@ -6,6 +6,8 @@ function mostrarDetalhe(elemento) {
   document.getElementById('detalheBorda').textContent = elemento.dataset.borda;
   document.getElementById('detalheTamanho').textContent = elemento.dataset.tamanho;
   document.getElementById('detalheSabores').textContent = elemento.dataset.sabores;
+  
+  
 
   document.getElementById('detalhePedido').style.display = 'flex';
   document.getElementById('mainContent').style.display = 'none';

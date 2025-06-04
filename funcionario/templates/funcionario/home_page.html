@@ -25,6 +25,7 @@
                     data-cpf="{{ pedido.cpf }}" data-endereco="{{ pedido.endereco }}"
                     data-quantidade="{{ pedido.quantidade }}" data-borda="{{ pedido.get_borda_display }}"
                     data-tamanho="{{ pedido.get_tamanho_display }}" data-sabores="{{ pedido.get_sabor1_display }}"
+                    data-forma_pagamento="{{ pedido.get_forma_de_pagamento_display }}"
                     onclick="mostrarDetalhe(this)">
                     Pedido #{{ pedido.id }} - {{ pedido.nome }}
                 </p>
@@ -54,7 +55,10 @@
         <button class="btn-senha" data-id="{{ pedido.id }}" data-nome="{{ pedido.nome }}" data-cpf="{{ pedido.cpf }}"
             data-endereco="{{ pedido.endereco }}" data-quantidade="{{ pedido.quantidade }}"
             data-borda="{{ pedido.get_borda_display }}" data-tamanho="{{ pedido.get_tamanho_display }}"
-            data-sabores="{{ pedido.get_sabor1_display }}" onclick="mostrarDetalhe(this)">
+            data-sabores="{{ pedido.get_sabor1_display }}" 
+            data-forma_de_pagamento="{{ pedido.get_forma_de_pagamento_display }}"
+            onclick="mostrarDetalhe(this)">
+            
             Pedido {{ pedido.id }}
         </button>
         {% endif %}

@@ -1,5 +1,5 @@
 from django.db import models
-from cliente.models import Pedido  # importa corretamente o Pedido
+from cliente.models import Pedido 
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100)
@@ -13,7 +13,7 @@ class Funcionario(models.Model):
 
 class Etiqueta(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.SET_NULL, null=True)
-    acao = models.CharField(max_length=100)  # exemplo: "Pedido excluído"
+    acao = models.CharField(max_length=100) 
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

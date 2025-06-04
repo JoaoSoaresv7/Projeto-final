@@ -7,6 +7,7 @@
         <p>Quantidade: {{ pedido.quantidade }}</p>
         <p>Borda: {{ pedido.get_borda_display }}</p>
         <p>Tamanho: {{ pedido.get_tamanho_display }}</p>
+        <p>Forma de Pagamento: {{ pedido.get_forma_de_pagamento_display }}</p>
         <p>Pizzas:</p>
         <ul>
             {% for pizza in pedido.pizzas.all %}
