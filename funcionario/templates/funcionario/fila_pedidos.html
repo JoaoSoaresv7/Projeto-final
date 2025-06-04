@@ -1,0 +1,13 @@
+<h1>Fila de Pedidos</h1>
+
+{% for pedido in pedidos %}
+    <h3>Pedido de {{ pedido.nome }} ({{ pedido.quantidade }} pizza(s))</h3>
+    <ul>
+        {% for pizza in pedido.pizzas.all %}
+            <li>Sabor: {{ pizza.get_sabor_display }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+{% empty %}
+    <p>Nenhum pedido na fila.</p>
+{% endfor %}
